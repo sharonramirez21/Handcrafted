@@ -1,4 +1,5 @@
 # Handcrafted
 
-Marcos Silvera
-Sharon Ramirez
+Marcos Silvera \n
+Sharon Ramirez \n
+Daniel Ayvazyan
