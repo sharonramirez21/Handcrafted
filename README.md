@@ -4,7 +4,7 @@
 
 Handcrafted Haven is a web application for a handmade marketplace. The goal of this project is to help artisans showcase their products, create seller profiles, and allow visitors to browse handmade items, view product details, and read or leave reviews and ratings.
 
-The application will be built using Next.js for the front-end, Node.js for the back-end, a database for storing project data, GitHub Boards for project management, Git and GitHub for code management, and Vercel for deployment
+The application will be built using Next.js for the front-end, Node.js for the back-end, a database for storing project data, GitHub Boards for project management, Git and GitHub for code management, and Vercel for deployment.
 
 ## Main Pages
 
