@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HeroSection() {
     
@@ -20,7 +21,14 @@ export default function HeroSection() {
             </div>
 
             <div className="image-placeholder">
-
+                <Image
+                src="/hero-desktop.jpg"
+                width={593}
+                height={310}
+                className="hero-image"
+                    alt="Handcrafted ceramic vase and wooden bowls on a rustic table"
+                    loading="eager"
+                    />
             </div>
         </section>
     );
