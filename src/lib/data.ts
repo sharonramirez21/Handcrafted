@@ -50,6 +50,21 @@ export async function fetchProductById(id: string) {
   return product[0];
 }
 
+export async function fetchSellers() {
+  const sellers = await sql<Seller[]>`
+    SELECT
+      id,
+      name,
+      bio,
+      story,
+      image_url
+    FROM sellers
+    ORDER BY created_at;
+  `;
+
+  return sellers;
+}
+
 export async function fetchSellerById(id: string) {
   const seller = await sql<Seller[]>`
     SELECT

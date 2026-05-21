@@ -21,7 +21,7 @@ export default function PublicSidebar() {
             Products
           </Link>
 
-          <Link href="/sellers/1">
+          <Link href="/sellers/">
             <span className="small-square"></span>
             Sellers
           </Link>
