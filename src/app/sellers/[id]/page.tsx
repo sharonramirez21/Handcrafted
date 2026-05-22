@@ -1,5 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 import { fetchProductsBySellerId, fetchSellerById } from "@/lib/data";
+import Image from "next/image";
 
 export default async function Page({
     params,
@@ -13,8 +14,15 @@ export default async function Page({
     return (
         <main>
             <div className="info-seller-id">
-                <div className="img-seller">
-                    <p>{seller.image_url}</p>
+                {/**For hero img in sellers profile */}
+                <div style={{ position: "relative", width: "100%", height: "300px" }}>
+                    <Image
+                        src={seller.image_url}
+                        alt={seller.name}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        loading="eager"
+                    />
                 </div>
                 <h1>{seller.name}</h1>
                 <p>{seller.bio}</p>
@@ -22,6 +30,7 @@ export default async function Page({
             </div>
 
             <div className="products-by-seller">
+                <h3>Items available</h3>
                 {productsbySeller.map((product) => (
                     <ProductCard key={product.id} product={product}/>
                 ))}

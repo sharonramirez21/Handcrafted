@@ -1,4 +1,5 @@
 import { fetchProductById } from "@/lib/data";
+import Image from "next/image";
 
 export default async function ProductPage({
     params,
@@ -11,7 +12,7 @@ export default async function ProductPage({
         <main>
             <h1>{product.name}</h1>
             <p>{product.seller_name}</p>
-            <div className="product-image">×</div>
+            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300} loading="eager"/>
             <p>{product.description}</p>
             <p>${product.price.toFixed(2)}</p>
             <p>{product.category}</p>

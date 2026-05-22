@@ -1,5 +1,6 @@
 import { Seller } from "@/lib/definitions"
 import Link from "next/link";
+import Image from "next/image";
 
 type SellersCardProps = {
     seller : Seller;
@@ -8,7 +9,7 @@ type SellersCardProps = {
 export default async function SellersCard( { seller }:SellersCardProps) {
     return (
         <article className="seller-card">
-            <div className="seller-img">x</div>
+            <Image src={seller.image_url} alt={seller.name} width={300} height={300} loading="eager" unoptimized/>
             <h3>{seller.name}</h3>
             <div className="seller-info">
                 <p>{seller.bio}</p>

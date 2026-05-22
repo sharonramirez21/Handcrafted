@@ -9,7 +9,7 @@ type ProductCardProps = {
 export default function ProductCard({ product }: ProductCardProps) {
     return (
         <article className="product-card">
-            <div className="product-image">×</div>
+            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300}/>
             <div className="product-info">
                 <h3>{product.name}</h3>
                 <p className="seller">{product.seller_name}</p>
