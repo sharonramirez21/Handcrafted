@@ -5,7 +5,7 @@ export type Seller = {
   password: string;
   bio: string | null;
   story: string | null;
-  image_url: string | null;
+  image_url: string;
   created_at: string;
 };
 
@@ -36,4 +36,15 @@ export type ProductWithSeller = Product & {
 
 export type ReviewWithProduct = Review & {
   product_name: string;
+};
+
+export type FeaturedProduct = {
+  id: string;
+  avg_rating: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  image_url: string | null;
+  seller_name: string;
 };

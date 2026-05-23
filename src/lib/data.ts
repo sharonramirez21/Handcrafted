@@ -4,6 +4,7 @@ import type {
   Review,
   ReviewWithProduct,
   Seller,
+  FeaturedProduct
 } from "@/lib/definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
@@ -48,6 +49,21 @@ export async function fetchProductById(id: string) {
   `;
 
   return product[0];
+}
+
+export async function fetchSellers() {
+  const sellers = await sql<Seller[]>`
+    SELECT
+      id,
+      name,
+      bio,
+      story,
+      image_url
+    FROM sellers
+    ORDER BY created_at;
+  `;
+
+  return sellers;
 }
 
 export async function fetchSellerById(id: string) {
@@ -124,4 +140,30 @@ export async function fetchReviewsForSellerProducts(sellerId: string) {
   `;
 
   return reviews;
+}
+
+
+
+export async function fetchFeaturedProducts() {
+  const products = await sql<FeaturedProduct[]>`
+    SELECT
+      p.id,
+      p.name,
+      p.description,
+      p.price,
+      p.category,
+      p.image_url,
+      s.name AS seller_name,
+      ROUND(AVG(r.rating),1) AS avg_rating
+    FROM products p
+    INNER JOIN reviews r ON r.product_id = p.id
+    INNER JOIN sellers s ON p.seller_id = s.id
+    GROUP BY p.id, p.name, p.description, p.price, p.category, p.image_url, s.name
+    HAVING AVG(r.rating)>=4
+    ORDER BY AVG(r.rating) DESC
+    LIMIT 4;
+  `;
+
+
+  return products;
 }

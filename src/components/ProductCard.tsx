@@ -1,19 +1,20 @@
 import Link from "next/link";
-import type { Product } from "@/lib/products";
+import type { FeaturedProduct } from "@/lib/definitions";
+import Image from "next/image";
 
 type ProductCardProps = {
-    product: Product;
+    product: FeaturedProduct;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+    const rating = Math.round(product.avg_rating)
     return (
         <article className="product-card">
-            <div className="product-image">×</div>
-
+            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300}/>
             <div className="product-info">
                 <h3>{product.name}</h3>
-                <p className="seller">{product.seller}</p>
-                <p className="price">${product.price.toFixed(2) }</p>
+                <p className="seller">{product.seller_name}</p>
+                <p className="price">${product.price.toFixed(2)}</p>
             </div>
 
             <div className="product-footer">
@@ -21,7 +22,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                     View details
                 </Link>
 
-                <p className="stars">{"★".repeat(product.rating)}</p>
+                <p className="stars">{"★".repeat(rating)}
+                                     {"☆".repeat(5 - rating)}</p>
             </div>
         </article>
     )
