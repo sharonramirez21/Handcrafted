@@ -1,9 +1,10 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/lib/products";
+import { fetchFeaturedProducts } from "@/lib/data";
 
-export default function FeaturedProducts() {
-    
+export  default async function FeaturedProducts() {
+    const featuredProducts = await fetchFeaturedProducts()
+    console.log(featuredProducts)
     return (
         <section className="products-section">
             <div className="section-header">
@@ -12,7 +13,7 @@ export default function FeaturedProducts() {
             </div>
 
             <div className="product-grid">
-                {products.map((product) => (
+                {featuredProducts.map((product) => (
                     <ProductCard key={product.id} product={product}/>
                 ))}
             </div>
