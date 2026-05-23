@@ -5,7 +5,7 @@ export type Seller = {
   password: string;
   bio: string | null;
   story: string | null;
-  image_url: string | null;
+  image_url: string;
   created_at: string;
 };
 

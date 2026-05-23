@@ -40,7 +40,7 @@ const products = [
       "A beautiful handmade necklace made with natural stones and recycled materials.",
     price: 2500,
     category: "Jewelry",
-    image_url: "/products/necklace.png",
+    image_url: "/products/necklace.webp",
     stock: 8,
   },
   {
@@ -51,7 +51,7 @@ const products = [
       "A unique ceramic mug created by hand, perfect for coffee or tea lovers.",
     price: 1800,
     category: "Pottery",
-    image_url: "/products/mug.png",
+    image_url: "/products/mug.webp",
     stock: 12,
   },
   {
@@ -62,7 +62,7 @@ const products = [
       "A decorative woven basket made with natural fibers for home organization.",
     price: 3200,
     category: "Home Decor",
-    image_url: "/products/basket.png",
+    image_url: "/products/basket.webp",
     stock: 5,
   },
   {
@@ -73,7 +73,7 @@ const products = [
       "A handmade ceramic vase with a simple and elegant design.",
     price: 4500,
     category: "Pottery",
-    image_url: "/products/vase.png",
+    image_url: "/products/vase.webp",
     stock: 4,
   },
 ];
