@@ -9,8 +9,6 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className = "page">
-      <PublicSidebar />
       <main className="main">
         <HeroSection />
         <BenefitsSection />
@@ -18,6 +16,5 @@ export default function HomePage() {
         <SellerCallToAction />
         <Footer /> 
       </main>
-    </div>
   );
 }
