@@ -55,15 +55,16 @@ a {
 ==================================
           Sidebar 
 =================================*/
-
 .sidebar {
   background-color: var(--color-secondary);
   border-right: 1px solid var(--color-border);
   padding: 24px 28px;
   display: flex;
+  position: sticky;
   flex-direction: column;
+  top: 0;
   justify-content: space-between;
-  min-height: 100vh; /*100% of the viewport height*/
+  height: 100vh; /*100% of the viewport height*/
 }
 
 .log-box {
@@ -133,6 +134,10 @@ a {
 .dashboard-button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+aside {
+  padding-bottom: 5rem;
 }
 
 /*
