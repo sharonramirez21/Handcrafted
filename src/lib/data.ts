@@ -12,19 +12,23 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 export async function fetchProducts() {
   const products = await sql<ProductWithSeller[]>`
     SELECT
-      products.id,
-      products.seller_id,
-      products.name,
-      products.description,
-      products.price,
-      products.category,
-      products.image_url,
-      products.stock,
-      products.created_at,
-      sellers.name AS seller_name
-    FROM products
-    JOIN sellers ON products.seller_id = sellers.id
-    ORDER BY products.created_at DESC;
+      p.id,
+      p.seller_id,
+      p.name,
+      p.description,
+      p.price,
+      p.category,
+      p.image_url,
+      p.stock,
+      p.created_at,
+      s.name AS seller_name,
+      ROUND(AVG(r.rating), 1) AS avg_rating,
+      COUNT(r.id) AS review_count
+    FROM products p
+    JOIN sellers s ON p.seller_id = s.id
+    LEFT JOIN reviews r ON p.id = r.product_id
+    GROUP BY p.id, p.seller_id, p.name, p.description, p.price, p.category, p.image_url, p.stock, p.created_at, s.name
+    ORDER BY p.created_at DESC;
   `;
 
   return products;
@@ -143,7 +147,6 @@ export async function fetchReviewsForSellerProducts(sellerId: string) {
 }
 
 
-
 export async function fetchFeaturedProducts() {
   const products = await sql<FeaturedProduct[]>`
     SELECT
@@ -161,7 +164,7 @@ export async function fetchFeaturedProducts() {
     GROUP BY p.id, p.name, p.description, p.price, p.category, p.image_url, s.name
     HAVING AVG(r.rating)>=4
     ORDER BY AVG(r.rating) DESC
-    LIMIT 4;
+    LIMIT 3;
   `;
 
 

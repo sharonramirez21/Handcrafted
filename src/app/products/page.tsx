@@ -34,7 +34,7 @@ export default async function ProductPage({
 
     return (
         <div>
-            <h1>Product Catalog</h1>
+            <h1 className="products-catalog">Product Catalog</h1>
             <ProductsFilter />
             <ProductGrid products={filteredProducts} /> 
         </div>

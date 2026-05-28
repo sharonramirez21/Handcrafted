@@ -7,12 +7,12 @@ type ProductCardProps = {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-    const rating = "avg_rating" in product && product.avg_rating !== undefined
+    const avg_rating = "avg_rating" in product && product.avg_rating !== undefined
       ? Math.round(Number(product.avg_rating))
       : null;
     return (
         <article className="product-card">
-            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300}/>
+            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300} className="image-product" loading="eager"/>
             <div className="product-info">
                 <h3>{product.name}</h3>
                 <p className="seller">{product.seller_name}</p>
@@ -23,13 +23,12 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <Link href={`/products/${product.id}`} className="product-link">
                     View details
                 </Link>
-
-                 {rating !== null && (
+                {avg_rating !== null && (
                     <p className="stars">
-                        {"★".repeat(rating)}
-                        {"☆".repeat(5 - rating)}
+                        {"★".repeat(avg_rating)}
+                        {"☆".repeat(5 - avg_rating)}
                     </p>
-                    )}
+                )}
             </div>
         </article>
     )

@@ -32,6 +32,8 @@ export type Review = {
 
 export type ProductWithSeller = Product & {
   seller_name: string;
+  avg_rating: number | null;
+  review_count: number;
 };
 
 export type ReviewWithProduct = Review & {

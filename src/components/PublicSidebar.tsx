@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function PublicSidebar() {
   return (
@@ -24,39 +25,39 @@ export default function PublicSidebar() {
           </Link>
 
           <Link href="/">
-            <span className="small-square"></span>
+            <Image src="/icons/house-solid.svg" alt="home icon" width={18} height={18}></Image>
             Home
           </Link>
 
           <Link href="/products">
-            <span className="small-square"></span>
+            <Image src="/icons/bag-shopping.svg" alt="products icon" width={18} height={18}></Image>
             Products
           </Link>
 
           <Link href="/sellers">
-            <span className="small-square"></span>
+            <Image src="/icons/users-solid.svg" alt="sellers icon" width={18} height={18}></Image>
             Sellers
           </Link>
 
           <Link href="/about">
-            <span className="small-square"></span>
+            <Image src="/icons/heart-solid.svg" alt="sellers icon" width={18} height={18}></Image>
             About Us
           </Link>
-        </nav>
-
+        </nav>      
         <hr className="sidebar-divider" />
 
         <nav className="nav">
-          <Link href="/dashboard">
-            <span className="small-square"></span>
-            Dashboard
-          </Link>
+            <Link href="/dashboard">
+              <Image src="/icons/table-cells.svg" alt="dashboard icon" width={19} height={19}></Image>
+              Dashboard
+            </Link>
         </nav>
       </div>
-
-      <Link href="/login" className="dashboard-button">
-        Seller Login
-      </Link>
+      <div>
+        <Link href="/login" className="dashboard-button">
+          Seller Login
+        </Link>
+      </div>
     </aside>
   );
 }
