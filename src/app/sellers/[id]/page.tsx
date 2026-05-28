@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 import { fetchProductsBySellerId, fetchSellerById } from "@/lib/data";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 export default async function Page({
     params,
@@ -11,6 +12,11 @@ export default async function Page({
     const { id } = await params;
     const seller = await fetchSellerById(id);
     const productsbySeller = await fetchProductsBySellerId(id);
+
+    if (!seller) {
+        notFound();
+    }
+
     return (
         <main>
             <div className="info-seller-id">

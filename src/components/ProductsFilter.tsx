@@ -6,8 +6,8 @@ export default function ProductsFilter() {
     const router = useRouter();
 
     return (
-        <div>
-            <select 
+        <div className="filters">
+            <select className="filter-select"
                 onChange={(e) => {
                     router.push(`/products?category=${e.target.value}`)
                 }}
@@ -18,7 +18,7 @@ export default function ProductsFilter() {
                 <option value="Home Decor">Home Decor</option>
             </select>
 
-            <select
+            <select className="filter-select"
                 onChange={(e) => {
                     router.push(`/products?price=${e.target.value}`)
                 }}
