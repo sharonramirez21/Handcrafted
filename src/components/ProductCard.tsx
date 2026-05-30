@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { FeaturedProduct, ProductWithSeller } from "@/lib/definitions";
+import type { FeaturedProduct, ProductWithSeller, SellerProduct } from "@/lib/definitions";
 import Image from "next/image";
 
 type ProductCardProps = {
-    product: FeaturedProduct | ProductWithSeller;
+    product: FeaturedProduct | ProductWithSeller | SellerProduct;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       : null;
     return (
         <article className="product-card">
-            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300}/>
+            <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300} className="product-image"/>
             <div className="product-info">
                 <h3>{product.name}</h3>
                 <p className="seller">{product.seller_name}</p>
@@ -20,7 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
 
             <div className="product-footer">
-                <Link href={`/products/${product.id}`} className="product-link">
+                <Link href={`/products/${product.id}`} className="product-link" aria-label={`View details for ${product.name}`}>
                     View details
                 </Link>
 

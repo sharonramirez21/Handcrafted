@@ -12,6 +12,9 @@
   --color-border: #d8cfc4;
   --color-muted: #6f6258;
   --color-white: #ffffff;
+
+  --color-accent-dark: #8f3f2d;
+  --color-muted: #5a4f47;
 }
 
 * {
@@ -184,7 +187,7 @@ section {
 }
 
 .text-link {
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   font-size: 12px;
   text-decoration: none;
   background: none;
@@ -267,7 +270,7 @@ section {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
-  justify-content: center;
+
   gap: 40px;
 }
 
@@ -319,7 +322,7 @@ section {
 
 .product-link {
   font-size: 11px;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   text-decoration: none;
   font-weight: 700;
 }
@@ -329,7 +332,7 @@ section {
 }
 
 .stars {
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   font-size: 12px;
   margin: 0;
 }
@@ -402,6 +405,118 @@ section {
   justify-content: center;
   gap: 12px;
 }
+/*============================ 
+        Public Seller Profile
+==============================*/
+
+.seller-profile-page {
+  padding: 0 60px;
+}
+
+.seller-hero {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding: 55px 0;
+}
+
+.seller-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.seller-image {
+  object-fit: cover;
+}
+
+.seller-info {
+  max-width: 650px;
+}
+
+.seller-label {
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.seller-info h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 18px;
+}
+
+.seller-bio {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.seller-story {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  border-radius: 6px;
+}
+
+.seller-story h2 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+.seller-story p {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.seller-products-section {
+  padding: 55px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.seller-products-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 26px;
+}
+
+.seller-products-section .section-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.seller-products-section .section-header p {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin: 8px 0 0;
+}
+
+.empty-state {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  padding: 32px;
+  text-align: center;
+  color: var(--color-muted);
+  border-radius: 6px;
+}
+
+.no-rating {
+  font-size: 11px;
+  color: var(--color-muted);
+}
 
 /*============================ 
         Responsive 
@@ -416,6 +531,8 @@ section {
     min-height: auto;
     border-right: none;
     border-bottom: 1px solid var(--color-border);
+    position: relative;
+    height: 350px;
   }
 
   .nav {
@@ -438,8 +555,46 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .product-card {
+    width: 300px;
+    justify-self: center;
+  }
+
   .benefits {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*============================ 
+        Public Seller Profile
+==============================*/
+  .seller-profile-page {
+    padding: 0 20px;
+  }
+
+  .seller-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .seller-info h1 {
+    font-size: 34px;
+  }
+
+  .seller-image-wrapper {
+    height: 260px;
+  }
+}
+
+@media (max-width: 500px) {
+  .seller-profile-page {
+    padding: 0 16px;
+  }
+
+  .seller-info h1 {
+    font-size: 30px;
+  }
+
+  .seller-story {
+    padding: 18px;
   }
 }
 
@@ -451,4 +606,45 @@ section {
   .hero h1 {
     font-size: 30px;
   }
+}
+
+/* 
+=============================
+     Only to improve the Accessibility 
+=============================*/
+
+.nav a,
+.product-link,
+.text-link,
+.dashboard-button,
+.brand {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer a {
+  display: block;
+  padding: 6px 0;
+  min-height: 32px;
+}
+.nav a {
+  padding: 8px 0;
+}
+
+.footer a,
+.footer-disabled-link {
+  padding: 6px 0;
+}
+
+.product-link,
+.text-link {
+  padding: 8px 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-accent-dark, #8f3f2d);
+  outline-offset: 3px;
 }

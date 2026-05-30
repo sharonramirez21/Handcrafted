@@ -40,7 +40,7 @@ export type ReviewWithProduct = Review & {
 
 export type FeaturedProduct = {
   id: string;
-  avg_rating: number;
+  avg_rating: number | null;
   name: string;
   description: string;
   price: number;
@@ -48,3 +48,12 @@ export type FeaturedProduct = {
   image_url: string | null;
   seller_name: string;
 };
+
+
+export type SellerProduct = FeaturedProduct & {
+  seller_id: string,
+  created_at: string,
+  stock: number,
+}
+
+

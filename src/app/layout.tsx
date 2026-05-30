@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import PublicSidebar from "@/components/PublicSidebar";
 
+
 export const metadata: Metadata = {
   title: {
     template: '%s | Handcrafted Haven',
