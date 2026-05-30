@@ -100,10 +100,22 @@ export async function fetchProductsBySellerId(sellerId: string) {
       products.image_url,
       products.stock,
       products.created_at,
-      sellers.name AS seller_name
+      sellers.name AS seller_name,
+      ROUND(AVG(reviews.rating),1) AS avg_rating
     FROM products
     JOIN sellers ON products.seller_id = sellers.id
+    LEFT JOIN reviews  ON reviews.product_id = products.id
     WHERE products.seller_id = ${sellerId}
+    GROUP BY products.id,
+      products.seller_id,
+      products.name,
+      products.description,
+      products.price,
+      products.category,
+      products.image_url,
+      products.stock,
+      products.created_at,
+      sellers.name
     ORDER BY products.created_at DESC;
   `;
 

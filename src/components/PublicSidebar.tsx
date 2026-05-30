@@ -7,7 +7,7 @@ export default function PublicSidebar() {
       <div>
         <nav className="nav">
 
-          <Link href="/">
+          <Link href="/" aria-label="Go to Handcrafted Haven homepage">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="200" height="100">
               <rect width="100%" height="100%" fill="#faf7f2"/>
               <g transform="translate(20, 30)">

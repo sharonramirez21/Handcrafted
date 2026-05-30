@@ -23,8 +23,8 @@ export default function Footer() {
         <h4>For Sellers</h4>
         <Link href="/login">Seller Login</Link>
         <Link href="/dashboard">Dashboard</Link>
-        <Link href="#">Guidelines</Link>
-        <Link href="#">Support</Link>
+        <Link href="/">Guidelines</Link>
+        <Link href="/">Support</Link>
       </div>
 
      
