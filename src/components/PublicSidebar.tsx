@@ -53,7 +53,7 @@ export default function PublicSidebar() {
             </Link>
         </nav>
       </div>
-      <div>
+      <div className="dashboard-conteiner-button">
         <Link href="/login" className="dashboard-button">
           Seller Login
         </Link>
