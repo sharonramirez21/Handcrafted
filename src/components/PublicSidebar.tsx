@@ -1,7 +1,16 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import {usePathname} from "next/navigation";
 
 export default function PublicSidebar() {
+  const pathname = usePathname();
+
+  if (pathname === "/login") {
+    return null
+  }
+
   return (
     <aside className="sidebar">
       <div>

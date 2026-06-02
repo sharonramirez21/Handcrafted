@@ -55,6 +55,10 @@ a {
   min-height: 100vh;
 }
 
+.page:has(.disable-grid) {
+  display: block;
+}
+
 /* 
 ==================================
           Sidebar 

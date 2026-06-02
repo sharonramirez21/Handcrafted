@@ -1,6 +1,5 @@
 import { fetchProductsBySellerId, fetchSellers } from "@/lib/data";
 import SellersGrid from "./SellersGrid";
-import Footer from "@/components/Footer";
 
 export default async function PageSellers() {
     const sellers = await fetchSellers();
