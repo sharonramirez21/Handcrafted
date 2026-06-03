@@ -703,7 +703,7 @@ section {
     border-right: none;
     border-bottom: 1px solid var(--color-border);
     position: relative;
-    height: 350px;
+    height: 400px;
   }
 
   .nav {
@@ -712,8 +712,14 @@ section {
     justify-content: center;
   }
 
+  .dashboard-conteiner-button {
+    display: flex;
+    justify-content: center;
+  }
+
   .dashboard-button {
-    margin-top: 24px;
+    width: 300px;
+    margin: 24px auto;
   }
 
   .main {

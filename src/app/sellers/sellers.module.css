@@ -1,0 +1,75 @@
+.sellersPage {
+  padding: 0 2rem;
+}
+
+.sellersHero {
+  padding: 55px 2rem;
+  border-bottom: 1px solid var(--color-border);
+  max-width: 760px;
+}
+
+.sellersLbel {
+  color: var(--color-accent-dark);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sellersHero h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.sellersHero p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sellersSection {
+  padding: 55px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sellersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+  gap: 40px;
+}
+
+.emptyState {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  padding: 32px;
+  text-align: center;
+  color: var(--color-muted);
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .sellersPage {
+    padding: 0 20px;
+  }
+
+  .sellersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sellersHero h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sellersPage {
+    padding: 0 16px;
+  }
+
+  .sellersHero h1 {
+    font-size: 30px;
+  }
+}
