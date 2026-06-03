@@ -3,6 +3,7 @@ import SellersGrid from "./SellersGrid";
 import Footer from "@/components/Footer";
 import styles from "./sellers.module.css"
 
+
 export default async function PageSellers() {
     const sellers = await fetchSellers();
 
