@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import SellersCardSkeleton from "@/components/SellersCardSkeleton";
 
 
+
 export default async function PageSellers() {
     
 

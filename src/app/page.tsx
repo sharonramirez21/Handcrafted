@@ -1,5 +1,3 @@
-import Image from "next/image";
-import PublicSidebar from "@/components/PublicSidebar";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
@@ -11,14 +9,14 @@ import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 
 export default function HomePage() {
   return (
-      <main className="main">
+      <div className="main">
         <HeroSection />
       <BenefitsSection />
       <Suspense fallback={<FeaturedProductsSkeleton/>}>
         <FeaturedProducts />
       </Suspense>
         <SellerCallToAction />
-        <Footer /> 
-      </main>
+        <Footer />
+      </div>
   );
 }

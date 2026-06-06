@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import PublicSidebar from "@/components/PublicSidebar";
+import styles from "./page.module.css";
 
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body>
         <div className = "page">
           <PublicSidebar />
-          <main>{children}</main>
+          <main className={styles.main}>{children}</main>
         </div>
       </body>
     </html>
