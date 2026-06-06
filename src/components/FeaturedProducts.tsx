@@ -4,7 +4,6 @@ import { fetchFeaturedProducts } from "@/lib/data";
 
 export  default async function FeaturedProducts() {
     const featuredProducts = await fetchFeaturedProducts()
-    console.log(featuredProducts)
     return (
         <section className="products-section">
             <div className="section-header">

@@ -5,14 +5,18 @@ import BenefitsSection from "@/components/BenefitsSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import SellerCallToAction from "@/components/SellerCallToAction";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 
 
 export default function HomePage() {
   return (
       <main className="main">
         <HeroSection />
-        <BenefitsSection />
+      <BenefitsSection />
+      <Suspense fallback={<FeaturedProductsSkeleton/>}>
         <FeaturedProducts />
+      </Suspense>
         <SellerCallToAction />
         <Footer /> 
       </main>
