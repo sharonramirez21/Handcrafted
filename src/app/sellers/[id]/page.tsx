@@ -30,6 +30,7 @@ export default async function Page({
               fill
               className="seller-image"
               loading="eager"
+              sizes="(max-width: 768px) 100vw, 300px"
             />
           </div>
 
