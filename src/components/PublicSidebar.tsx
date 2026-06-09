@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import {usePathname} from "next/navigation";
+import SignOutInBtn from "@/components/SignOutInBtn";
 
 export default function PublicSidebar() {
   const pathname = usePathname();
@@ -54,7 +55,6 @@ export default function PublicSidebar() {
           </Link>
         </nav>      
         <hr className="sidebar-divider" />
-
         <nav className="nav">
             <Link href="/dashboard">
               <Image src="/icons/table-cells.svg" alt="dashboard icon" width={19} height={19}></Image>
@@ -63,9 +63,7 @@ export default function PublicSidebar() {
         </nav>
       </div>
       <div className="dashboard-conteiner-button">
-        <Link href="/login" className="dashboard-button">
-          Seller Login
-        </Link>
+        <SignOutInBtn />
       </div>
     </aside>
   );
