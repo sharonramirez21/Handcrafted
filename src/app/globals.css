@@ -728,8 +728,54 @@ FeatureProductsSkeleton
 }
 
 /*==========================================
-SellerCardSkeleton 
+DASHBOARD PRODUCT
 ============================================*/
+.dashboard-card-actions {
+  display: flex;
+  gap: 10px;
+  padding: 0 14px 14px;
+}
+
+.dashboard-card-actions form {
+  flex: 1;
+  margin: 0;
+}
+
+.dashboard-card-button {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-card-button-edit {
+  flex: 1;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+
+.dashboard-card-button-edit:hover {
+  border-color: var(--color-primary);
+}
+
+.dashboard-card-button-delete {
+  background-color: var(--color-white);
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-border);
+}
+
+.dashboard-card-button-delete:hover {
+  border-color: var(--color-accent-dark);
+}
 
 /*============================ 
         Responsive 
