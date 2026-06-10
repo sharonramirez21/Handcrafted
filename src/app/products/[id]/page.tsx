@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ReviewForm from "./ReviewForm";
 import { notFound } from "next/navigation";
+import styles from "../products.module.css";
+import Footer from "@/components/Footer";
 
 export default async function ProductPage({
     params,
@@ -19,7 +21,7 @@ export default async function ProductPage({
     
     return (
         <main className="product-page">
-            <div className="product-detail">
+            <div className={styles.productDetail}>
                 <Image src={product.image_url ?? "/placeholder.png"} alt={product.name} width={300} height={300} loading="eager"/>
                 <div className="product-detail-info">
                     <h1>{product.name}</h1>
@@ -43,7 +45,7 @@ export default async function ProductPage({
                 ))}
                 <ReviewForm productId={id} />
             </section>
-
+            <Footer />
         </main>
     )
 }

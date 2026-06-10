@@ -7,3 +7,20 @@
   gap: 24px;
   padding: 24px;
 }
+
+@media (max-width: 500px) {
+  .productsHead h1 {
+    text-align: center;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .productsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+  } 
+}

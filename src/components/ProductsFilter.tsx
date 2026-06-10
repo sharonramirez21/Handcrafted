@@ -1,12 +1,13 @@
 'use client';
 
 import { useSearchParams, useRouter } from "next/navigation";
+import styles from "../app/products/products.module.css";
 
 export default function ProductsFilter() {
     const router = useRouter();
 
     return (
-        <div className="filters">
+        <div className={styles.filters}>
             <select className="filter-select"
                 onChange={(e) => {
                     router.push(`/products?category=${e.target.value}`)
