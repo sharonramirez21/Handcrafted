@@ -28,9 +28,7 @@ export default function EditProductForm({ product }: { product: Product }) {
           </p>
         </div>
 
-        <Link href="/dashboard/products" className={styles.backLink}>
-          Back to Products
-        </Link>
+      
       </div>
 
       <form action={formAction} className={styles.form}>

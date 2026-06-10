@@ -26,7 +26,7 @@ export default function CreateProductForm() {
                     Create a new product for your Handcrafted store.
                 </p>
             </div>
-            <link href="/dashboard/products" className={styles.backLink} />
+            
         </div>
         <form action={formAction} className={styles.form}>
             <div className={styles.field}>
@@ -88,8 +88,8 @@ export default function CreateProductForm() {
                 <input
                 id="image_url"
                 name="image_url"
-                type="url"
-                placeholder="/products/mug.jpg or https://example.com/image.jpg"
+                type="text"
+                placeholder="/products/mug.jpg "
                 />
 
                 {state.errors?.image_url && (
