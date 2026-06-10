@@ -25,7 +25,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         height={300}
         className="product-image"
         loading="eager"
-        sizes="(max-width: 900px) 100vw, 400px"
+      
       />
 
       <div className="product-info">

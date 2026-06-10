@@ -50,6 +50,71 @@
   border-radius: 6px;
 }
 
+/*============================ 
+        Sellers Skeleton
+==============================*/
+
+.sellerSkeletonCard {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 16px;
+}
+
+.sellerSkeletonImage {
+  width: 100%;
+  height: 190px;
+}
+
+.sellerSkeletonContent {
+  padding: 16px;
+}
+
+.sellerSkeletonTitle {
+  width: 65%;
+  height: 20px;
+  margin-bottom: 12px;
+}
+
+.sellerSkeletonBio {
+  width: 85%;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.sellerSkeletonStory {
+  width: 70%;
+  height: 14px;
+}
+
+.sellerSkeletonFooter {
+  width: 90px;
+  height: 14px;
+  margin: 0 16px;
+}
+
+.sellerSkeletonImage,
+.sellerSkeletonTitle,
+.sellerSkeletonBio,
+.sellerSkeletonStory,
+.sellerSkeletonFooter {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: sellersShimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes sellersShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 @media (max-width: 900px) {
   .sellersPage {
     padding: 0 20px;
@@ -71,5 +136,120 @@
 
   .sellersHero h1 {
     font-size: 30px;
+  }
+}
+
+.sellerProfileSkeletonImage,
+.sellerProfileSkeletonLabel,
+.sellerProfileSkeletonTitle,
+.sellerProfileSkeletonBio,
+.sellerProfileSkeletonStoryTitle,
+.sellerProfileSkeletonStoryText,
+.sellerProfileSkeletonStoryTextShort,
+.sellerProfileSkeletonSectionTitle,
+.sellerProfileSkeletonSectionText,
+.sellerProductSkeletonImage,
+.sellerProductSkeletonTitle,
+.sellerProductSkeletonText,
+.sellerProductSkeletonTextSmall,
+.sellerProductSkeletonLink,
+.sellerProductSkeletonRating {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: sellersShimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.sellerProfileSkeletonImage {
+  width: 100%;
+  height: 100%;
+}
+
+.sellerProfileSkeletonLabel {
+  width: 120px;
+  height: 14px;
+  margin-bottom: 16px;
+}
+
+.sellerProfileSkeletonTitle {
+  width: 60%;
+  height: 44px;
+  margin-bottom: 20px;
+}
+
+.sellerProfileSkeletonBio {
+  width: 80%;
+  height: 18px;
+  margin-bottom: 28px;
+}
+
+.sellerProfileSkeletonStoryTitle {
+  width: 140px;
+  height: 24px;
+  margin-bottom: 16px;
+}
+
+.sellerProfileSkeletonStoryText {
+  width: 100%;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.sellerProfileSkeletonStoryTextShort {
+  width: 70%;
+  height: 14px;
+}
+
+.sellerProfileSkeletonSectionTitle {
+  width: 180px;
+  height: 28px;
+  margin-bottom: 10px;
+}
+
+.sellerProfileSkeletonSectionText {
+  width: 140px;
+  height: 14px;
+}
+
+.sellerProductSkeletonImage {
+  width: 100%;
+  height: 180px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sellerProductSkeletonTitle {
+  width: 70%;
+  height: 16px;
+  margin-bottom: 10px;
+}
+
+.sellerProductSkeletonText {
+  width: 60%;
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.sellerProductSkeletonTextSmall {
+  width: 40%;
+  height: 12px;
+}
+
+.sellerProductSkeletonLink {
+  width: 80px;
+  height: 12px;
+}
+
+.sellerProductSkeletonRating {
+  width: 70px;
+  height: 12px;
+}
+
+@keyframes sellersShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
   }
 }
