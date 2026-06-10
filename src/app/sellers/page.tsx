@@ -1,6 +1,5 @@
-import { fetchProductsBySellerId, fetchSellers } from "@/lib/data";
+import { fetchSellers } from "@/lib/data";
 import SellersGrid from "./SellersGrid";
-import Footer from "@/components/Footer";
 import styles from "./sellers.module.css"
 
 

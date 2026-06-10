@@ -1,7 +1,7 @@
 'use server';
 
 import { AuthError } from 'next-auth';
-import {auth, signIn, signOut} from "@/auth";
+import {signIn, signOut} from "@/auth";
 
 export async function authenticate(
     prevState: string | undefined,

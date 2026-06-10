@@ -49,8 +49,8 @@ export type FeaturedProduct = {
   category: string;
   image_url: string | null;
   seller_name: string;
+  stock: number;
 };
-
 
 export type SellerProduct = FeaturedProduct & {
   seller_id: string,

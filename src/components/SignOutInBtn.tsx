@@ -2,10 +2,9 @@
 
 import { handleSignOut } from "@/lib/action";
 import Link from "next/link";
-import {SessionProvider, useSession} from "next-auth/react"; // Safe for client components
+import {SessionProvider, useSession} from "next-auth/react";
 
 function ShowSignOutInBtn() {
-    // 1. Grab the session state directly from the client cache
     const { data: session } = useSession();
     const isLoggedIn = !!session;
 

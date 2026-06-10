@@ -4,12 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import {usePathname} from "next/navigation";
 import SignOutInBtn from "@/components/SignOutInBtn";
+import DashboardSidebar from "@/components/DashboardSidebar";
 
 export default function PublicSidebar() {
   const pathname = usePathname();
 
   if (pathname === "/login") {
     return null
+  } else if (pathname.startsWith("/dashboard")) {
+    return <DashboardSidebar />
   }
 
   return (

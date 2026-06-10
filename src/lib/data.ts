@@ -115,7 +115,7 @@ export async function fetchProductsBySellerId(sellerId: string) {
       products.image_url,
       products.stock,
       products.created_at,
-      sellers.name
+             seller_name
     ORDER BY products.created_at DESC;
   `;
 
