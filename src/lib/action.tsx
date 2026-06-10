@@ -269,8 +269,7 @@ export async function deleteProduct(productId: string) {
     }
 
     try {
-        await sql.begin(async (sql) => {
-            await sql`
+        await sql`
             DELETE FROM reviews
             WHERE product_id = ${productId};
             `;
@@ -287,15 +286,15 @@ export async function deleteProduct(productId: string) {
             `;
 
         if (deletedProduct.length === 0) {
-        throw new Error(
-        "Product was not found or you do not have permission to delete it.",
+            throw new Error(
+            "Product was not found or you do not have permission to delete it.",
         );
         }
-        });
     } catch (error) {
-        console.error("Database Error:", error);
-        throw new Error("Failed to delete product.");
-    }
+            console.error("Database Error:", error);
+            throw new Error("Failed to delete product.");
+        }
+
 
     revalidatePath("/dashboard/products");
 }
