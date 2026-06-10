@@ -4,7 +4,8 @@ import type {
   Review,
   ReviewWithProduct,
   Seller,
-  FeaturedProduct
+  FeaturedProduct,
+  Product
 } from "@/lib/definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
@@ -181,4 +182,63 @@ export async function fetchFeaturedProducts() {
 
 
   return products;
+}
+
+export async function fetchProductsBySellerEmail(email: string) {
+  const products = await sql<ProductWithSeller[]>`
+    SELECT
+      products.id,
+      products.seller_id,
+      products.name,
+      products.description,
+      products.price,
+      products.category,
+      products.image_url,
+      products.stock,
+      products.created_at,
+      sellers.name AS seller_name,
+      ROUND(AVG(reviews.rating),1) AS avg_rating,
+      COUNT(reviews.id) AS review_count
+    FROM products
+    JOIN sellers ON products.seller_id = sellers.id
+    LEFT JOIN reviews  ON reviews.product_id = products.id
+    WHERE sellers.email = ${email}
+    GROUP BY products.id,
+      products.seller_id,
+      products.name,
+      products.description,
+      products.price,
+      products.category,
+      products.image_url,
+      products.stock,
+      products.created_at,
+      sellers.name
+    ORDER BY products.created_at DESC;
+  `;
+
+  return products;
+}
+
+export async function fetchProductByIdForSellerEmail(
+  productId: string,
+  sellerEmail: string,
+) {
+  const products = await sql<Product[]>`
+  SELECT
+    products.id,
+    products.seller_id,
+    products.name,
+    products.description,
+    products.price,
+    products.category,
+    products.image_url,
+    products.stock,
+    products.created_at
+  FROM products
+  JOIN sellers ON products.seller_id = sellers.id
+    WHERE products.id = ${productId}
+      AND sellers.email = ${sellerEmail}
+    LIMIT 1;`;
+  
+  return products[0];
 }

@@ -55,9 +55,9 @@ a {
   min-height: 100vh;
 }
 
-.page:has(.disable-grid) {
+/* .page:has(.disable-grid) {
   display: block;
-}
+} */
 
 /* 
 ==================================
@@ -730,6 +730,7 @@ FeatureProductsSkeleton
 /*==========================================
 DASHBOARD PRODUCT
 ============================================*/
+
 .dashboard-card-actions {
   display: flex;
   gap: 10px;
