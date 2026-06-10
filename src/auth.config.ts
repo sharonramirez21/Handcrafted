@@ -12,7 +12,8 @@ export const authConfig = {
 
             if (isOnDashboard) {
                 if (isLoggedIn) return true;
-                return false;
+                console.log('Not Logged in')
+                return Response.redirect(new URL('/login', nextUrl));
             }
 
             // 3. If logged in and trying to access /login -> Bounce them to /dashboard

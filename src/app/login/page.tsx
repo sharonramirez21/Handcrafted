@@ -1,5 +1,4 @@
 import LoginForm from "@/app/login/LoginForm";
-import styles from "./login.module.css";
 import {Suspense} from "react";
 
 
