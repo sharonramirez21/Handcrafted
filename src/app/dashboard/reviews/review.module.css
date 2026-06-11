@@ -4,12 +4,83 @@
 
 .reviewSection h2 {
     margin-bottom: 30px;
+    font-size: 30px;
+    padding-left: 5px;
 }
 
+.divRewviewsTotal {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.porcentReviews {
+    background-color: var(--color-white);
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+}
+
+.averageRaiting {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.starsText {
+    margin: 0;
+    text-align: center;
+}
+
+.starPercetage {
+    font-style: italic;
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/************ REVIEWS FOR STAR *************/
+.ratingOneyOne {
+    background-color: var(--color-white);
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.raitingDiv {
+    display: grid;
+    grid-template-columns: 40px 1fr 80px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e5e5;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--color-primary);
+}
+
+/************ CARD REVIEWS ONE Y ONE *************/
 .reviewCard {
     border: 1px solid var(--color-border);
     padding: 5px 10px 5px 20px;
     border-radius: 6px;
+    background-color: var(--color-white);
 }
 
 .reviewDivCard {
@@ -17,8 +88,36 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.guestnameReview {
+    margin: 0;
+    margin-top: 15px;
+}
+
+.dateReview {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: var(--color-accent-dark);
+}
+
 .reviewStar {
     text-align: right;
     margin-right: 10px;
 }
 
+.commentReview {
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.reviewProductLik {
+    margin-bottom: 20px;
+}
+
+.productLink {
+    background-color: var(--color-primary);
+    padding: 5px;
+    color: var(--color-white);
+    border-radius: 6px;
+    text-decoration: none;
+}

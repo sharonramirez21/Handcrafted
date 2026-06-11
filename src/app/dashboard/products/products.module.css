@@ -8,6 +8,53 @@
   padding: 24px;
 }
 
-.yourProductsTitle {
-  margin-left: 24px;
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 24px 0;
+}
+
+.dashboardHeader h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.dashboardHeader p {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.addButton {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid var(--color-primary);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.addButton:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 800px) {
+  .dashboardHeader {
+    flex-direction: column;
+  }
+
+  .addButton {
+    width: 100%;
+  }
 }

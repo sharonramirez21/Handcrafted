@@ -1,47 +1,36 @@
-import {fetchProductsBySellerId} from "@/lib/data";
+import { fetchProductsBySellerId } from "@/lib/data";
 import ProductGrid from "./ProductGrid";
-import ProductsFilter from "@/components/ProductsFilter";
-import {auth} from "@/auth";
-import styles from "./products.module.css";
+import { auth } from "@/auth";
+import Link from "next/link";
+import styles from "./products.module.css"
+import { fetchProductsBySellerEmail } from "@/lib/data";
 
-export default async function ProductPage({
-    searchParams 
-}
-: {
-    searchParams : Promise<{ category?: string, price?: string }>
-}
-) {
+export default async function ProductPage() {
     const session = await auth();
-    const sellerId = session!.user!.userId;
+    const sellerEmail = session!.user!.email;
 
-    const products = await fetchProductsBySellerId(sellerId);
-    const { category, price } = await searchParams; 
+    if (!sellerEmail) {
+        throw new Error("Seller email was not found in the session")
+    }
 
-    const filteredProducts = products.filter((product) => {
-        if (category && category !== "all-categories") {
-            return product.category == category;
-        }
+    const products = await fetchProductsBySellerEmail(sellerEmail);
 
-        if (price === 'under') {
-            return product.price < 2000;
-        }
-
-        if (price === '2000-3000') {
-            return product.price >= 2000 && product.price <= 3000;
-        }
-
-        if (price === 'over-3000') {
-            return product.price > 3000;
-        }
-
-        return true
-    })
+    console.log(products);
 
     return (
-        <div>
-            <h1 className={styles.yourProductsTitle}>Your Products</h1>
-            <ProductsFilter />
-            <ProductGrid products={filteredProducts} /> 
-        </div>
+        <main >
+            <div className={styles.dashboardHeader}>
+                <div>
+                    <h1>Your Products</h1>
+                    <p>Manage the products you sell in Handcrafted Haven.</p>
+                </div>
+
+                <Link href="/dashboard/products/create" className={styles.addButton}>
+                    Add New Product
+                </Link>
+            </div>
+
+            <ProductGrid products={products} />
+        </main>
     )
 }

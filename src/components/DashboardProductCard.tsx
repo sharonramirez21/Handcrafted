@@ -5,6 +5,7 @@ import type {
   SellerProduct,
 } from "@/lib/definitions";
 import Image from "next/image";
+import { deleteProduct } from "@/lib/action";
 
 type ProductCardProps = {
   product: FeaturedProduct | ProductWithSeller | SellerProduct;
@@ -32,7 +33,7 @@ export default function DashboardProductCard({ product }: ProductCardProps) {
         <h3>{product.name}</h3>
         <p className="seller">{product.seller_name}</p>
         <p className="price">${Number(product.price).toFixed(2)}</p>
-        <p className="stock">Stock: {product.stock}</p>
+        {"stock" in product && <p className="stock">Stock: {product.stock}</p>}
       </div>
 
       <div className="product-footer">
@@ -51,6 +52,24 @@ export default function DashboardProductCard({ product }: ProductCardProps) {
           </p>
         )}
       </div>
+      <div className="dashboard-card-actions">
+          <Link
+              href={`/dashboard/products/${product.id}/edit`}
+              className="dashboard-card-button dashboard-card-button-edit"
+              >
+              Edit
+          </Link>
+
+          <form action={deleteProduct.bind(null, product.id)}>
+              <button
+              type="submit"
+              className="dashboard-card-button dashboard-card-button-delete"
+              >
+              Delete
+              </button>
+          </form>
+      </div>
+
     </article>
   );
 }

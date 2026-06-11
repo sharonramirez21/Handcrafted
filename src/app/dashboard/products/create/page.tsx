@@ -1,12 +1,5 @@
-import {auth} from "@/auth";
+import CreateProductForm from "./CreateProductForm";
 
 export default async function CreateProductPage() {
-    const session = await auth();
-    const sellerId = session!.user!.userId;
-
-    return (
-        <div>
-            <h1>Hi</h1>
-        </div>
-    )
+    return <CreateProductForm />;
 }
