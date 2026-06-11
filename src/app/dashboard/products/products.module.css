@@ -57,4 +57,9 @@
   .addButton {
     width: 100%;
   }
+  .productsGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
