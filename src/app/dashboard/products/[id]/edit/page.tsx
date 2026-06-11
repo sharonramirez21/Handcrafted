@@ -19,6 +19,7 @@ export default async function EditProductPage({
     }
     
     const product = await fetchProductByIdForSellerEmail(id, sellerEmail);
+    
 
     if (!product) {
         notFound();

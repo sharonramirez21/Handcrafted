@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import type { Product } from "@/lib/definitions";
 import { updateProduct, type EditProductFormState } from "@/lib/action";
 import styles from "./EditProduct.module.css";
@@ -16,6 +16,7 @@ export default function EditProductForm({ product }: { product: Product }) {
     updateProduct,
     initialState,
   );
+  const [hasChanges, setHasChanges] = useState(false)
 
   return (
     <main className={styles.page}>
@@ -31,7 +32,7 @@ export default function EditProductForm({ product }: { product: Product }) {
       
       </div>
 
-      <form action={formAction} className={styles.form}>
+      <form action={formAction} className={styles.form} onChange={()=>setHasChanges(true)}>
         <input type="hidden" name="id" value={product.id} />
 
         <div className={styles.field}>
@@ -136,14 +137,10 @@ export default function EditProductForm({ product }: { product: Product }) {
         {state.message && <p className={styles.formMessage}>{state.message}</p>}
 
         <div className={styles.actions}>
-          <Link href="/dashboard/products" className={styles.cancelButton}>
-            Cancel
-          </Link>
-
           <button
             type="submit"
             className={styles.submitButton}
-            disabled={isPending}
+            disabled={isPending || !hasChanges}
           >
             {isPending ? "Saving..." : "Save Changes"}
           </button>

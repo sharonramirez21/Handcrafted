@@ -70,8 +70,6 @@ export default async function Page({
           )}
         </section>
       </div>
-
-      <Footer />
     </main>
   );
 }

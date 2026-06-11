@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import PublicSidebar from "@/components/PublicSidebar";
+import Footer from "@/components/Footer";
 import styles from "./page.module.css";
 
 
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body>
         <div className = "page">
           <PublicSidebar />
-          <main className={styles.main}>{children}</main>
+          <main className={styles.main}>{children}
+            <Footer/>
+          </main>
         </div>
       </body>
     </html>

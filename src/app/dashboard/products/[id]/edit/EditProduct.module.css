@@ -3,6 +3,7 @@
   max-width: 900px;
   min-width: 0;
   padding: 0;
+  margin: 1rem;
 }
 
 .header {
@@ -102,12 +103,11 @@
 
 .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 12px;
   margin-top: 28px;
 }
 
-.cancelButton,
 .submitButton {
   border-radius: 6px;
   padding: 12px 18px;
@@ -122,20 +122,14 @@
   justify-content: center;
 }
 
-.cancelButton {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border);
-}
-
-.cancelButton:hover {
-  border-color: var(--color-primary);
-}
-
 .submitButton {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: 1px solid var(--color-primary);
+}
+
+.submitButton:disabled {
+  background-color: var(--color-muted);
 }
 
 .submitButton:hover {

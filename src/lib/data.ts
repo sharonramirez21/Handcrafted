@@ -184,7 +184,7 @@ export async function fetchFeaturedProducts() {
   return products;
 }
 
-export async function fetchProductsBySellerEmail(email: string) {
+export async function fetchProductsBySellerEmail(email: string, query:string) {
   const products = await sql<ProductWithSeller[]>`
     SELECT
       products.id,
@@ -202,7 +202,7 @@ export async function fetchProductsBySellerEmail(email: string) {
     FROM products
     JOIN sellers ON products.seller_id = sellers.id
     LEFT JOIN reviews  ON reviews.product_id = products.id
-    WHERE sellers.email = ${email}
+    WHERE sellers.email = ${email} and products.name ILIKE ${`%${query}%`}
     GROUP BY products.id,
       products.seller_id,
       products.name,
