@@ -219,6 +219,8 @@ export async function fetchProductsBySellerEmail(email: string) {
   return products;
 }
 
+
+//By Seller Email
 export async function fetchProductByIdForSellerEmail(
   productId: string,
   sellerEmail: string,
