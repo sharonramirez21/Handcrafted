@@ -1,13 +1,14 @@
 'use client';
 
+import styles from "../app/products/products.module.css";
 import { useRouter } from "next/navigation";
 
 export default function ProductsFilter() {
     const router = useRouter();
 
     return (
-        <div className="filters">
-            <select className="filter-select"
+        <div className={styles.filters}>
+            <select className={styles.filterSelect}
                 onChange={(e) => {
                     router.push(`/products?category=${e.target.value}`)
                 }}
@@ -18,7 +19,7 @@ export default function ProductsFilter() {
                 <option value="Home Decor">Home Decor</option>
             </select>
 
-            <select className="filter-select"
+            <select className={styles.filterSelect}
                 onChange={(e) => {
                     router.push(`/products?price=${e.target.value}`)
                 }}

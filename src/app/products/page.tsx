@@ -1,6 +1,8 @@
 import { fetchProducts } from "@/lib/data";
 import ProductGrid from "./ProductGrid";
 import ProductsFilter from "@/components/ProductsFilter";
+import styles from "./products.module.css"
+import Footer from "@/components/Footer";
 
 export default async function ProductPage({
     searchParams 
@@ -33,10 +35,12 @@ export default async function ProductPage({
     })
 
     return (
-        <div>
-            <h1 className="products-catalog">Product Catalog</h1>
+        <div className={styles.productsHead}>
+            <h1 className={styles.productCataloge}>Product Catalog</h1>
             <ProductsFilter />
             <ProductGrid products={filteredProducts} /> 
+            <hr className={styles.divider} />
+            <Footer />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import {fetchProductsBySellerId} from "@/lib/data";
+import { fetchProductsBySellerId } from "@/lib/data";
 import ProductGrid from "./ProductGrid";
 import { auth } from "@/auth";
 import Link from "next/link";
@@ -10,11 +10,11 @@ export default async function ProductPage() {
     const sellerEmail = session!.user!.email;
 
     if (!sellerEmail) {
-        throw new Error ("Seller email was not found in the session")
+        throw new Error("Seller email was not found in the session")
     }
 
     const products = await fetchProductsBySellerEmail(sellerEmail);
-    
+
     console.log(products);
 
     return (
@@ -26,12 +26,11 @@ export default async function ProductPage() {
                 </div>
 
                 <Link href="/dashboard/products/create" className={styles.addButton}>
-                Add New Product
+                    Add New Product
                 </Link>
             </div>
 
             <ProductGrid products={products} />
-       </main>
-
+        </main>
     )
 }

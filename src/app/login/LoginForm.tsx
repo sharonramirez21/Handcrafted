@@ -1,6 +1,6 @@
 'use client';
 
-import {useActionState, useState} from 'react';
+import { useActionState, useState } from 'react';
 import { authenticate } from '@/lib/action';
 import { useSearchParams } from 'next/navigation';
 import closedEye from '../../../public/icons/closed-eye.svg'
@@ -18,57 +18,69 @@ export default function LoginForm() {
     );
 
     return (
-        <div className={styles.formDiv}>
-            <span className="disable-grid" style={{ display: 'none' }} />
-            <form action={formAction} className={styles.loginForm}>
-                <h3>
-                    Please log in to continue
-                </h3>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                        required
-                    />
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <div className={styles.leftSide}>
+                    <h1>Hello!</h1>
+                    <p>
+                        Welcome back to Handcrafted.
+                        Discover unique handmade products.
+                    </p>
                 </div>
-                <div id={styles.passwordInput}>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        id="password"
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        placeholder="Enter password"
-                        required
-                        minLength={6}
-                    />
-                    <button
-                        id={styles.showPasswordBtn}
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        aria-label={showPassword ? "Hide password" : "Show password"}
-                    >
-                        <Image
-                            src={showPassword ? openEye : closedEye}
-                            alt=""
-                            width={20}
-                            height={20}
-                            priority
-                        />
-                    </button>
+
+                <div className={styles.rightSide}>
+                    <span className="disable-grid" style={{ display: 'none' }} />
+                    <form action={formAction} className={styles.loginForm}>
+                        <h3>
+                            Welcome Back
+                        </h3>
+                        <div>
+                            <label htmlFor="email">Email</label>
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                            />
+                        </div>
+                        <div id={styles.passwordInput}>
+                            <label htmlFor="password">Password</label>
+                            <input
+                                id="password"
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Enter password"
+                                required
+                                minLength={6}
+                            />
+                            <button
+                                id={styles.showPasswordBtn}
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                            >
+                                <Image
+                                    src={showPassword ? openEye : closedEye}
+                                    alt=""
+                                    width={20}
+                                    height={20}
+                                    priority
+                                />
+                            </button>
+                        </div>
+                        <input type="hidden" name="redirectTo" value={callbackUrl} />
+                        <button className={styles.btnLogin} aria-disabled={isPending}>Log In</button>
+                        <div>
+                            {errorMessage && (
+                                <>
+                                    <p>{errorMessage}</p>
+                                </>
+                            )}
+                        </div>
+                    </form>
                 </div>
-                <input type="hidden" name="redirectTo" value={callbackUrl} />
-                <button aria-disabled={isPending}>Log In</button>
-                <div>
-                    {errorMessage && (
-                        <>
-                            <p>{errorMessage}</p>
-                        </>
-                    )}
-                </div>
-            </form>
+            </div>
         </div>
     );
 }

@@ -1,9 +1,13 @@
+.reviewForm {
+    margin-top: 5px;
+} 
+
 .formInput {
     display: flex;
     flex-direction: column;
     gap: 8px;
     max-width: 500px;
-    margin-top: 24px;
+    margin-top: 5px;
 }
 
 .formInput label {
