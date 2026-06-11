@@ -100,10 +100,7 @@ export default function CreateProductForm() {
             {state.message && <p className={styles.formMessage}>{state.message}</p>}
 
             <div className={styles.actions}>
-                <Link href="/dashboard/products" className={styles.cancelButton}>
-                Cancel
-                </Link>
-
+            
                 <button
                 type="submit"
                 className={styles.submitButton}

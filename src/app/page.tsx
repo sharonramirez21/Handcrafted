@@ -18,7 +18,7 @@ export default function HomePage() {
         <FeaturedProducts />
       </Suspense>
         <SellerCallToAction />
-        <Footer />
+        
       </div>
   );
 }

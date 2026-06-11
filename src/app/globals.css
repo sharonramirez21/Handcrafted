@@ -385,7 +385,9 @@ section {
 ======================*/
 
 .footer {
+  background-color: var(--color-secondary);
   margin: 20px auto;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -658,6 +660,25 @@ DASHBOARD PRODUCT
 
 .dashboard-card-button-delete:hover {
   border-color: var(--color-accent-dark);
+}
+
+/*============================ 
+       Search
+==============================*/
+
+.search {
+  margin: 20px;
+}
+
+.input-search {
+  width: 300px;
+  height: 35px;
+  padding: 5px;
+}
+
+.search label {
+  margin: 5px;
+  font-size: var(--font-body);
 }
 
 /*============================ 

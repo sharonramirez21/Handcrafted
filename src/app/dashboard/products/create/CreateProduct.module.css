@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 900px;
   min-width: 0;
-  padding: 0;
+  padding: 1rem;
 }
 
 .header {
@@ -37,32 +37,11 @@
   line-height: 1.5;
 }
 
-.backLink {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  text-decoration: none;
-  padding: 12px 18px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  border: 1px solid var(--color-border);
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  white-space: nowrap;
-}
-
-.backLink:hover {
-  border-color: var(--color-primary);
-}
-
 .form {
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  padding: 28px;
+  padding: 1rem;
 }
 
 .field {
@@ -123,12 +102,11 @@
 
 .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 12px;
   margin-top: 28px;
 }
 
-.cancelButton,
 .submitButton {
   border-radius: 6px;
   padding: 12px 18px;
@@ -141,16 +119,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.cancelButton {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  border: 1px solid var(--color-border);
-}
-
-.cancelButton:hover {
-  border-color: var(--color-primary);
 }
 
 .submitButton {

@@ -40,7 +40,6 @@ export default async function ProductPage({
             <ProductsFilter />
             <ProductGrid products={filteredProducts} /> 
             <hr className={styles.divider} />
-            <Footer />
         </div>
     )
 }
