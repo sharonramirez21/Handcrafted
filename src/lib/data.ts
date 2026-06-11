@@ -111,7 +111,7 @@ export async function fetchProductsBySellerId(sellerId: string) {
       products.seller_id,
       products.name,
       products.description,
-      products.price::float AS price,
+      products.price,
       products.category,
       products.image_url,
       products.stock,
