@@ -12,9 +12,9 @@ export default function ReviewForm({ productId }: { productId: string }) {
         <div>
             {isOpen && (
                 <form action={submitReviewWithId} className={styles.reviewForm}>
-                    <label htmlFor="guest_name">Name</label>
+                    <label className={styles.labelForm} htmlFor="guest_name">Name</label>
                     <input className={styles.formInput} type="text" name="guest_name" id="guest_name" />
-                    <label htmlFor="rating">Raiting</label>
+                    <label className={styles.labelForm} htmlFor="rating">Raiting</label>
                     <select className={styles.formInput} name="rating" id="rating">
                         <option value="1">1 ⭐</option>
                         <option value="2">2 ⭐</option>
@@ -22,13 +22,13 @@ export default function ReviewForm({ productId }: { productId: string }) {
                         <option value="4">4 ⭐</option>
                         <option value="5">5 ⭐</option>
                     </select>
-                    <label htmlFor="comment">Comment</label>
+                    <label className={styles.labelForm} htmlFor="comment">Comment</label>
                     <textarea className={styles.formInput} name="comment" id="comment" />
                     <button className={styles.btnForm}>Submit Review</button>
                 </form>
             )}
 
-            <button className="btn-form" onClick={() => setIsOpen(!isOpen)}>
+            <button className={styles.btnForm} onClick={() => setIsOpen(!isOpen)}>
                 {isOpen ? "Cancel" : "Submit Review"}
             </button>
         </div>

@@ -36,9 +36,10 @@ export default async function ProductPage({
 
     return (
         <div className={styles.productsHead}>
-            <h1 className="products-catalog">Product Catalog</h1>
+            <h1 className={styles.productCataloge}>Product Catalog</h1>
             <ProductsFilter />
             <ProductGrid products={filteredProducts} /> 
+            <hr className={styles.divider} />
             <Footer />
         </div>
     )

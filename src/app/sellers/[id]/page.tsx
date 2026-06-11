@@ -25,7 +25,7 @@ export default async function Page({
         <section className="seller-hero">
           <div className="seller-image-wrapper">
             <Image
-              src={seller.image_url ?? "/sellers/placeholder-seller.png"}
+              src={seller.image_url ?? "/seller/placeholder-seller.png"}
               alt={seller.name}
               fill
               className="seller-image"

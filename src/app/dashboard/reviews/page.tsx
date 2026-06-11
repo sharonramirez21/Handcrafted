@@ -1,3 +1,5 @@
+import ReviewRows from "@/app/dashboard/reviews/ReviewRows";
+
 export default function Page() {
-    return <h1>Reviews</h1>
+    return <ReviewRows />
 }

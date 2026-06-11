@@ -1,0 +1,24 @@
+.reviewSection {
+    padding: 20px;
+}
+
+.reviewSection h2 {
+    margin-bottom: 30px;
+}
+
+.reviewCard {
+    border: 1px solid var(--color-border);
+    padding: 5px 10px 5px 20px;
+    border-radius: 6px;
+}
+
+.reviewDivCard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.reviewStar {
+    text-align: right;
+    margin-right: 10px;
+}
+

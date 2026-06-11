@@ -1,0 +1,19 @@
+.sidebar {
+    background-color: var(--color-primary);
+    border-right: 1px solid var(--color-border);
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 24px 28px;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar a {
+    color: var(--color-secondary);
+}
+
+.sidebar a:hover {
+    color: var(--color-accent);
+}

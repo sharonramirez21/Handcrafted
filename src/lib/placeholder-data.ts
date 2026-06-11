@@ -7,7 +7,7 @@ const sellers = [
     bio: "Ana creates handmade jewelry using natural stones and recycled materials.",
     story:
       "Ana started creating jewelry as a family tradition and now shares her handmade designs with customers who value unique and sustainable products.",
-    image_url: "/sellers/ana.png",
+    image_url: "/seller/ana.png",
   },
   {
     id: "410544b2-4001-4271-9855-fec4b6a6442b",
@@ -17,7 +17,7 @@ const sellers = [
     bio: "Clay Art Shop creates unique ceramic pieces for everyday use.",
     story:
       "This shop focuses on handcrafted pottery made with care, creativity, and attention to detail.",
-    image_url: "/sellers/clay.png",
+    image_url: "/seller/clay.png",
   },
   {
     id: "410544b2-4001-4271-9855-fec4b6a6442c",
@@ -27,7 +27,7 @@ const sellers = [
     bio: "Natural Crafts creates home decor items using natural materials.",
     story:
       "Natural Crafts promotes sustainable consumption through handmade baskets, bowls, and decorative items.",
-    image_url: "/sellers/natural.png",
+    image_url: "/seller/natural.png",
   },
 ];
 

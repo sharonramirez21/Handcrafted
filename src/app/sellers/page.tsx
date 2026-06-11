@@ -1,5 +1,7 @@
+import { fetchSellers } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
+
 import SellersGrid from "./SellersGrid";
 import styles from "./sellers.module.css"
 import { Suspense } from "react";
