@@ -27,7 +27,7 @@ export default async function ProductPage({
                     <h1>{product.name}</h1>
                     <Link className={styles.sellerName} href={`/sellers/${product.seller_id}`}>{product.seller_name}</Link>
                     <p>Description: {product.description}</p>
-                    <p className={styles.productPrice}>${parseFloat(product.price).toFixed(2)}</p>
+                    <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
                     <p>Category: {product.category}</p>
                     <button className={styles.btnBuy}>Buy</button>
                 </div>
