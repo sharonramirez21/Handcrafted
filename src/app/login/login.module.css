@@ -5,11 +5,13 @@
     align-items: center;
     background: var(--color-background);
     padding: 20px;
+    width: 100vw;
 }
 
 .card {
-    width: 850px;
-    height: 500px;
+    width: 100%;
+    max-width: 850px;
+    min-height: 500px;
     display: flex;
     background: white;
     border-radius: 15px;
