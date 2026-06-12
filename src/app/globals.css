@@ -850,3 +850,14 @@ button:focus-visible {
   outline: 3px solid var(--color-accent-dark, #8f3f2d);
   outline-offset: 3px;
 }
+
+/*======================================
+  Active links
+=======================================*/
+
+.link-active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 900;
+  border-radius: 5px;
+}

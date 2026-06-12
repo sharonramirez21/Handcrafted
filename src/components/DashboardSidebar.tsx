@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function DashboardSidebar() {
     const pathname = usePathname();
-      const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -38,22 +38,22 @@ export default function DashboardSidebar() {
                     {/*    </svg>*/}
                     {/*</Link>*/}
 
-                    <Link href="/dashboard">
+                    <Link href="/dashboard" className={`link-${pathname==="/dashboard"?"active":""}`}>
                         <Image src="/icons/table-cells.svg" alt="dashboard icon" width={19} height={19}></Image>
                         Dashboard
                     </Link>
 
-                    <Link href="/dashboard/products">
+                    <Link href="/dashboard/products" className={`link-${pathname==="/dashboard/products" ||pathname.startsWith("/dashboard/products")?"active":""}`}>
                         <Image src="/icons/bag-shopping.svg" alt="products icon" width={18} height={18}></Image>
                         Your Products
                     </Link>
 
-                    <Link href="/dashboard/seller">
+                    <Link href="/dashboard/seller" className={`link-${pathname==="/dashboard/seller" ||pathname.startsWith("/dashboard/seller")?"active":""}`}>
                         <Image src="/icons/users-solid.svg" alt="sellers icon" width={18} height={18}></Image>
                         Your Profile
                     </Link>
 
-                    <Link href="/dashboard/reviews">
+                    <Link href="/dashboard/reviews" className={`link-${pathname==="/dashboard/reviews" ||pathname.startsWith("/dashboard/reviews")?"active":""}`}>
                         {/* Change the icon for this link */}
                         <Image src="/icons/heart-solid.svg" alt="seller icon" width={18} height={18}></Image>
                         Reviews

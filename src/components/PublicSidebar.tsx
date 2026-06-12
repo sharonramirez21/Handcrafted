@@ -11,6 +11,8 @@ export default function PublicSidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log(pathname)
+
   if (pathname === "/login") {
     return null
   } else if (pathname.startsWith("/dashboard")) {
@@ -97,22 +99,22 @@ export default function PublicSidebar() {
 
             </Link>
 
-            <Link href="/">
+            <Link href="/" className={`link-${pathname==="/"?"active":""}`}>
               <Image src="/icons/house-solid.svg" alt="home icon" width={18} height={18}></Image>
               Home
             </Link>
 
-            <Link href="/products">
+            <Link href="/products" className={`link-${pathname==="/products" ||pathname.startsWith("/products")?"active":""}`}>
               <Image src="/icons/bag-shopping.svg" alt="products icon" width={18} height={18}></Image>
               Products
             </Link>
 
-            <Link href="/sellers">
+            <Link href="/sellers" className={`link-${pathname ==="/sellers" ||pathname.startsWith("/sellers") ?"active":""}`}>
               <Image src="/icons/users-solid.svg" alt="sellers icon" width={18} height={18}></Image>
               Sellers
             </Link>
 
-            <Link href="/about">
+            <Link href="/about" className={`link-${pathname==="/about"?"active":""}`}>
               <Image src="/icons/heart-solid.svg" alt="sellers icon" width={18} height={18}></Image>
               About Us
             </Link>

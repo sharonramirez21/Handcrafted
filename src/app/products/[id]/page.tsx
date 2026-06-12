@@ -45,7 +45,6 @@ export default async function ProductPage({
                 ))}
                 <ReviewForm productId={id} />
             </section>
-            <Footer />
         </main>
     )
 }
