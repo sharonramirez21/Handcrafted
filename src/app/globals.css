@@ -767,9 +767,6 @@ DASHBOARD PRODUCT
   .seller-story {
     padding: 18px;
   }
-}
-
-@media (max-width: 500px) {
   .benefits {
     grid-template-columns: 1fr;
   }
@@ -785,7 +782,7 @@ DASHBOARD PRODUCT
 
   .menu-button {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 1000;
@@ -801,10 +798,16 @@ DASHBOARD PRODUCT
     left: -500px;
     top: 0;
     height: 100vh;
+    z-index: 999;
+    transition: left 0.3s ease;
   }
 
   .sidebar.open {
     left: 0;
+  }
+
+  .seller-image-wrapper {
+    height: 260px;
   }
 }
 /* 
