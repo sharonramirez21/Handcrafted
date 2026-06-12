@@ -2,11 +2,22 @@ import Link from "next/link";
 import Image from "next/image";
 import SignOutInBtn from "@/components/SignOutInBtn";
 import styles from "@/app/dashboard/dashboard.module.css"
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function DashboardSidebar() {
+    const pathname = usePathname();
+      const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <aside className="sidebar">
+        <>
+            <button
+          className="menu-button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "✕" : "☰"}
+        </button>
+        <aside className={`sidebar ${isOpen ? "open" : ""}`}>
             <div>
                 <nav className="nav">
 
@@ -60,6 +71,7 @@ export default function DashboardSidebar() {
             <div className="dashboard-conteiner-button">
                 <SignOutInBtn />
             </div>
-        </aside>
+            </aside>
+            </>
     );
 }
