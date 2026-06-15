@@ -4,7 +4,6 @@ import Link from "next/link";
 import ReviewForm from "./ReviewForm";
 import { notFound } from "next/navigation";
 import styles from "../products.module.css";
-import Footer from "@/components/Footer";
 
 export default async function ProductPage({
     params,

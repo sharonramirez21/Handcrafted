@@ -1,5 +1,4 @@
 import ProductCard from "@/components/ProductCard";
-import Footer from "@/components/Footer";
 import { fetchProductsBySellerId, fetchSellerById } from "@/lib/data";
 import Image from "next/image";
 import { notFound } from "next/navigation";

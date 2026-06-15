@@ -1,5 +1,3 @@
-import { fetchSellers } from "@/lib/data";
-
 export const dynamic = "force-dynamic";
 
 import SellersGrid from "./SellersGrid";

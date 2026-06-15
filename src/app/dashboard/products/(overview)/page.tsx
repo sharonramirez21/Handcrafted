@@ -1,4 +1,3 @@
-import {fetchProductsBySellerId} from "@/lib/data";
 import ProductGrid from "../ProductGrid";
 import Search from "@/components/Search";
 import { auth } from "@/auth";

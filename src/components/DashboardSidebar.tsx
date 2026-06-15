@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import SignOutInBtn from "@/components/SignOutInBtn";
-import styles from "@/app/dashboard/dashboard.module.css"
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 

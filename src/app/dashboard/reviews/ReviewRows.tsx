@@ -2,7 +2,6 @@ import { auth } from "@/auth";
 import { fetchReviewsForSellerProducts } from "@/lib/data";
 import Link from "next/link";
 import styles from "./review.module.css";
-import Footer from "@/components/Footer";
 
 export default async function ReviewRows({ }) {
     const session = await auth();
