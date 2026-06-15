@@ -1,75 +1,113 @@
-.sellersPage {
-  padding: 0 2rem;
-}
-
-.sellersHero {
-  padding: 55px 2rem;
-  border-bottom: 1px solid var(--color-border);
-  max-width: 760px;
-}
-
-.sellersLbel {
-  color: var(--color-accent-dark);
-  font-size: 12px;
-  font-weight: 700;
-  margin: 0 0 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.sellersHero h1 {
-  font-size: 42px;
-  line-height: 1.05;
-  margin: 0 0 16px;
-}
-
-.sellersHero p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.sellersSection {
+.sellerEditSection {
   padding: 55px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.sellersGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
-  gap: 40px;
+.sellerEditHeader {
+  max-width: 720px;
+  margin-bottom: 28px;
 }
 
-.emptyState {
-  background-color: var(--color-secondary);
+.sellerEditHeader h3 {
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.profileForm {
+  max-width: 720px;
+  background-color: var(--color-white);
   border: 1px solid var(--color-border);
-  padding: 32px;
-  text-align: center;
-  color: var(--color-muted);
-  border-radius: 6px;
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: 3px solid var(--color-accent-dark);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+.button,
+.submitButton {
+  min-height: 44px;
+  padding: 12px 18px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: #8b1e1e;
+  font-size: 12px;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
-  .sellersPage {
-    padding: 0 20px;
+  .sellerEditHeader h3 {
+    font-size: 21px;
   }
 
-  .sellersGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sellersHero h1 {
-    font-size: 34px;
+  .profileForm {
+    padding: 24px;
   }
 }
 
 @media (max-width: 500px) {
-  .sellersPage {
-    padding: 0 16px;
+  .sellerEditSection {
+    padding: 40px 0;
   }
 
-  .sellersHero h1 {
-    font-size: 30px;
+  .sellerEditHeader h3 {
+    font-size: 18px;
+  }
+
+  .profileForm {
+    padding: 18px;
   }
 }

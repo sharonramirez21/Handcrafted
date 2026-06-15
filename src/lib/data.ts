@@ -11,7 +11,8 @@ import type {
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export async function fetchProducts() {
-  const products = await sql<ProductWithSeller[]>`
+  try {
+    const products = await sql<ProductWithSeller[]>`
     SELECT
       p.id,
       p.seller_id,
@@ -33,10 +34,16 @@ export async function fetchProducts() {
   `;
 
   return products;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchProductById(id: string) {
-  const product = await sql<ProductWithSeller[]>`
+  try {
+    const product = await sql<ProductWithSeller[]>`
     SELECT
       products.id,
       products.seller_id,
@@ -54,10 +61,16 @@ export async function fetchProductById(id: string) {
   `;
 
   return product[0];
+  } catch (error) {
+     console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchSellers() {
-  const sellers = await sql<Seller[]>`
+  try {
+    const sellers = await sql<Seller[]>`
     SELECT
       id,
       name,
@@ -69,10 +82,16 @@ export async function fetchSellers() {
   `;
 
   return sellers;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchSellerById(id: string) {
-  const seller = await sql<Seller[]>`
+  try {
+    const seller = await sql<Seller[]>`
     SELECT
       id,
       name,
@@ -87,10 +106,16 @@ export async function fetchSellerById(id: string) {
   `;
 
   return seller[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchProductsBySellerId(sellerId: string) {
-  const products = await sql<ProductWithSeller[]>`
+  try {
+    const products = await sql<ProductWithSeller[]>`
     SELECT
       products.id,
       products.seller_id,
@@ -121,10 +146,16 @@ export async function fetchProductsBySellerId(sellerId: string) {
   `;
 
   return products;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchReviewsByProductId(productId: string) {
-  const reviews = await sql<Review[]>`
+  try {
+    const reviews = await sql<Review[]>`
     SELECT
       id,
       product_id,
@@ -138,10 +169,16 @@ export async function fetchReviewsByProductId(productId: string) {
   `;
 
   return reviews;
+  } catch (error) {
+     console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 export async function fetchReviewsForSellerProducts(sellerId: string) {
-  const reviews = await sql<ReviewWithProduct[]>`
+  try {
+    const reviews = await sql<ReviewWithProduct[]>`
     SELECT
       reviews.id,
       reviews.product_id,
@@ -157,11 +194,17 @@ export async function fetchReviewsForSellerProducts(sellerId: string) {
   `;
 
   return reviews;
+  } catch (error) {
+     console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 
 export async function fetchFeaturedProducts() {
-  const products = await sql<FeaturedProduct[]>`
+  try {
+    const products = await sql<FeaturedProduct[]>`
     SELECT
       p.id,
       p.name,
@@ -179,13 +222,17 @@ export async function fetchFeaturedProducts() {
     ORDER BY AVG(r.rating) DESC
     LIMIT 3;
   `;
-
-
   return products;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch  data.');
+  }
+  
 }
 
-export async function fetchProductsBySellerEmail(email: string, query:string) {
-  const products = await sql<ProductWithSeller[]>`
+export async function fetchProductsBySellerEmail(email: string, query: string) {
+  try {
+    const products = await sql<ProductWithSeller[]>`
     SELECT
       products.id,
       products.seller_id,
@@ -217,6 +264,11 @@ export async function fetchProductsBySellerEmail(email: string, query:string) {
   `;
 
   return products;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
 }
 
 
@@ -225,7 +277,8 @@ export async function fetchProductByIdForSellerEmail(
   productId: string,
   sellerEmail: string,
 ) {
-  const products = await sql<Product[]>`
+  try {
+    const products = await sql<Product[]>`
   SELECT
     products.id,
     products.seller_id,
@@ -243,4 +296,31 @@ export async function fetchProductByIdForSellerEmail(
     LIMIT 1;`;
   
   return products[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
+  
+}
+
+export async function fetchSellerByEmail(email: string) {
+  try {
+    const seller = await sql<Seller[]>`
+    SELECT 
+      id,
+      name,
+      email,
+      bio,
+      story,
+      image_url,
+      created_at
+    FROM sellers
+    WHERE sellers.email=${email} `
+
+    return seller[0];
+  
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch data.');
+  }
 }

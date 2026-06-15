@@ -1,17 +1,20 @@
-import { fetchSellerById } from "@/lib/data";
+import { fetchSellerByEmail } from "@/lib/data";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import {auth} from "@/auth";
+import { auth } from "@/auth";
+import styles from "./sellers.module.css";
+import ProfileForm from "./ProfileForm";
 
 export default async function Page() {
   const session = await auth();
-  const sellerId = session!.user!.userId;
+  const sellerEmail = session?.user?.email;
 
-  const seller = await fetchSellerById(sellerId);
 
-  if (!seller) {
-    notFound();
+  if (!sellerEmail) {
+        throw new Error("Seller email was not found in the session.");
   }
+  
+  const seller = await fetchSellerByEmail(sellerEmail);
 
   return (
     <main>
@@ -26,7 +29,6 @@ export default async function Page() {
               loading="eager"
             />
           </div>
-
           <div className="seller-info">
             <p className="seller-label">Your Profile</p>
 
@@ -41,6 +43,14 @@ export default async function Page() {
               </div>
             )}
           </div>
+        </section>
+
+        <section className={styles.sellerEditSection}>
+          <div className={styles.sellerEditHeader}>
+          <h3>Manage your public seller information. These details will appear on
+              your public artisan profile.</h3>
+          </div>
+          <ProfileForm seller={seller} />
         </section>
       </div>
     </main>

@@ -341,3 +341,76 @@ export async function deleteProduct(productId: string) {
     revalidatePath("/dashboard/products");
 }
 
+
+
+/*=========================================================
+                  SELLER PROFILE  
+
+==========================================================*/
+ const EditSellerSchema = z.object({
+  id: z.string().uuid({
+    message: "Invalid product id.",
+  }),
+  name: z.string().min(3, {
+    message: "Seller name must be at least 2 characters.",
+  }),
+  bio: z.string().min(10, {
+    message: "Bio must be at least 10 characters.",
+  }),
+  story: z.string().min(10, {
+    message: "Story must be at least 10 characters.",
+  }),
+  image_url: z.string().min(1, {
+    message: "Please enter an image path or URL.",
+  }),
+ });
+
+export type SellerProfileState = {
+  errors?: {
+    name?: string[];
+    bio?: string[];
+    story?: string[];
+    image_url?: string[];
+  };
+  message?: string | null;
+};
+
+export async function editSellerProfile(
+  prevState: SellerProfileState,
+  formData: FormData
+) {
+  const validatedFields = EditSellerSchema.safeParse({
+    id: formData.get("id"),
+    name: formData.get("name"),
+    bio: formData.get("bio"),
+    story: formData.get("story"),
+    image_url: formData.get("image_url"),
+  })
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Mising fields. Faild tu update profile.",
+    };
+  }
+  const { id, name, bio, story, image_url } = validatedFields.data;
+  try {
+    await sql`
+    UPDATE sellers
+      SET 
+      name = ${name},
+      bio = ${bio},
+      story = ${story},
+      image_url = ${image_url}
+    WHERE id = ${id}`;
+  
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed update.');
+  }
+
+  revalidatePath("/dashboard/seller");
+  revalidatePath(`/sellers/${id}`);
+  redirect("/dashboard/seller");
+  
+}
