@@ -2,7 +2,6 @@ import { fetchProducts } from "@/lib/data";
 import ProductGrid from "./ProductGrid";
 import ProductsFilter from "@/components/ProductsFilter";
 import styles from "./products.module.css"
-import Footer from "@/components/Footer";
 
 export default async function ProductPage({
     searchParams 

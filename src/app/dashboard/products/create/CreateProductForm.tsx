@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useActionState } from "react";
 import { createProduct, type ProductFormState } from "@/lib/action";
 import styles from "./CreateProduct.module.css";
@@ -31,7 +30,7 @@ export default function CreateProductForm() {
         <form action={formAction} className={styles.form}>
             <div className={styles.field}>
                 <label htmlFor="name">Product name</label>
-                <input id="name" name="name" type="text" placeholder="Ceramic handmade muge" />
+                <input id="name" name="name" type="text" placeholder="Ceramic handmade muge" defaultValue={state.fields?.name || ""} />
                 {state.errors?.name && (
                     <p className={styles.error}>{state.errors.name[0]}</p>
                 )}
@@ -39,7 +38,7 @@ export default function CreateProductForm() {
 
             <div className={styles.field}>
                 <label htmlFor="description">Description</label>
-                <textarea name="description" id="description" rows={5} placeholder="Describe the product, materials, and details"></textarea>
+                <textarea name="description" id="description" rows={5} placeholder="Describe the product, materials, and details" defaultValue={state.fields?.description || ""} ></textarea>
                 {state.errors?.description && (
                     <p className={styles.error}>{state.errors.description[0]}</p>
                 )}
@@ -47,7 +46,7 @@ export default function CreateProductForm() {
             <div className={styles.grid}>
                 <div className={styles.field}>
                     <label htmlFor="price">Price</label>
-                    <input id="price" name="price" type="number" step="0.01" min="0" />
+                    <input id="price" name="price" type="number" step="0.01" min="0" defaultValue={state.fields?.price || ""}/>
 
                     {state.errors?.price && (
                     <p className={styles.error}>{state.errors.price[0]}</p>
@@ -56,7 +55,7 @@ export default function CreateProductForm() {
 
                 <div className={styles.field}>
                     <label htmlFor="stock">Stock</label>
-                    <input id="stock" name="stock" type="number" min="0" />
+                    <input id="stock" name="stock" type="number" min="0" defaultValue={state.fields?.stock || ""}/>
 
                     {state.errors?.stock && (
                     <p className={styles.error}>{state.errors.stock[0]}</p>
@@ -66,7 +65,7 @@ export default function CreateProductForm() {
 
             <div className={styles.field}>
                 <label htmlFor="category">Category</label>
-                <select id="category" name="category" defaultValue="">
+                <select id="category" name="category" defaultValue={state.fields?.category || ""}>
                     <option value="" disabled>
                     Select a category
                     </option>
@@ -90,6 +89,7 @@ export default function CreateProductForm() {
                 name="image_url"
                 type="text"
                 placeholder="/products/mug.jpg "
+                defaultValue={state.fields?.description || "/products/placeholder.png"}
                 />
 
                 {state.errors?.image_url && (
