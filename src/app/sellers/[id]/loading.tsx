@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import styles from "../sellers.module.css";
 
 export default function Loading() {
@@ -52,7 +51,6 @@ export default function Loading() {
         </section>
       </div>
 
-      <Footer />
     </main>
   );
 }

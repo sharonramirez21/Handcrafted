@@ -68,12 +68,29 @@ export type ProductFormState = {
     stock?: string[];
   };
   message?: string | null;
+  fields?: {
+      name?: string;
+      description?: string;
+      price?: string;
+      stock?: string;
+      category?: string;
+      image_url?: string;
+  };
 };
 
 export async function createProduct(
   prevState: ProductFormState,
   formData: FormData,
     ): Promise<ProductFormState> {
+    const rawFields = {
+        name: formData.get("name") as string,
+        description: formData.get("description") as string,
+        price: formData.get("price") as string,
+        category: formData.get("category") as string,
+        image_url: formData.get("image_url") as string,
+        stock: formData.get("stock") as string,
+    };
+
   const validatedFields = ProductSchema.safeParse({
   name: formData.get("name"),
   description: formData.get("description"),
@@ -87,6 +104,7 @@ export async function createProduct(
     return {
     errors: validatedFields.error.flatten().fieldErrors,
     message: "Missing or invalid fields. Failed to create product.",
+        fields: rawFields,
     };
   }
 
@@ -96,6 +114,7 @@ export async function createProduct(
   if (!sellerEmail) {
     return {
     message: "Seller email was not found in the session.",
+        fields: rawFields,
     };
   }
 
@@ -113,6 +132,7 @@ export async function createProduct(
     if (seller.length === 0) {
       return {
       message: "Seller was not found.",
+          fields: rawFields,
       };
     }
 
@@ -143,6 +163,7 @@ export async function createProduct(
 
     return {
       message: "Database Error: Failed to create product.",
+        fields: rawFields,
     };
   }
 
@@ -186,12 +207,29 @@ export type EditProductFormState = {
     stock?: string[];
   };
   message?: string | null;
+    fields?: {
+        name?: string;
+        description?: string;
+        price?: string;
+        stock?: string;
+        category?: string;
+        image_url?: string;
+    };
 };
 
 export async function updateProduct(
   prevState: EditProductFormState,
   formData: FormData,
 ):Promise<EditProductFormState> {
+    const rawFields = {
+        name: formData.get("name") as string,
+        description: formData.get("description") as string,
+        price: formData.get("price") as string,
+        category: formData.get("category") as string,
+        image_url: formData.get("image_url") as string,
+        stock: formData.get("stock") as string,
+    };
+
   const validatedFields = EditProductSchema.safeParse({
     id: formData.get("id"),
     name: formData.get("name"),
@@ -205,7 +243,8 @@ export async function updateProduct(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Missing or invalid fields. Failed to update product."
+      message: "Missing or invalid fields. Failed to update product.",
+        fields: rawFields,
     }
   }
 
@@ -215,6 +254,7 @@ export async function updateProduct(
   if (!sellerEmail) {
     return {
       message: "Seller email was not found in the session. ",
+        fields: rawFields,
     };
   }
 
@@ -241,6 +281,7 @@ export async function updateProduct(
     if (result.length === 0) {
       return {
         message: "Product was not found or you do not have permission to edit it.",
+          fields: rawFields,
       };
     }
     } catch (error) {
@@ -248,6 +289,7 @@ export async function updateProduct(
 
         return {
           message: "Database Error: Failed to update product.",
+            fields: rawFields,
         };
     }
 

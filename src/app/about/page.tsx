@@ -1,6 +1,4 @@
-import Image from "next/image";
 import styles from "./about.module.css";
-import Footer from "@/components/Footer";
 
 export default async function AboutPage() {
     return (
@@ -14,7 +12,7 @@ export default async function AboutPage() {
                         <h2 className={styles.titleMission}>Our Mission</h2>
                     </div>
                     <div>
-                        <p className={styles.missionText}>Our mission is to connect passionate artisans with people who appreciate the beauty of handmade. We believe every handcrafted piece tells a story — of skill, dedication, and creativity — and we're here to make sure those stories reach the right hands.</p>
+                        <p className={styles.missionText}>Our mission is to connect passionate artisans with people who appreciate the beauty of handmade. We believe every handcrafted piece tells a story — of skill, dedication, and creativity — and we&#39;re here to make sure those stories reach the right hands.</p>
                     </div>
                 </div>
                 <div className={styles.visionDiv}>
@@ -27,12 +25,11 @@ export default async function AboutPage() {
                 <ul className={styles.listValues}>
                     <li>We <span>celebrate real craftsmanship</span> and the genuine stories behind every handmade piece.</li>
                     <li>We <span>believe in supporting independent makers</span> and building meaningful connections between artisans and buyers.</li>
-                    <li>We champion <span>original ideas</span> and unique creations that can't be found anywhere else.</li>
+                    <li>We champion <span>original ideas</span> and unique creations that can&#39;t be found anywhere else.</li>
                     <li>Every <span>artisan deserves a platform</span>, regardless of their background, location, or the size of their workshop.</li>
                 </ul>
             </div>
             <hr className={styles.divider} />
-            <Footer />
         </div>
     )
 }

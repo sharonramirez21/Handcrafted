@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useActionState, useState } from "react";
 import type { Product } from "@/lib/definitions";
 import { updateProduct, type EditProductFormState } from "@/lib/action";
@@ -41,7 +40,7 @@ export default function EditProductForm({ product }: { product: Product }) {
             id="name"
             name="name"
             type="text"
-            defaultValue={product.name}
+            defaultValue={state.fields?.name || product.name}
           />
 
           {state.errors?.name && (
@@ -55,7 +54,7 @@ export default function EditProductForm({ product }: { product: Product }) {
             id="description"
             name="description"
             rows={5}
-            defaultValue={product.description}
+            defaultValue={state.fields?.description || product.description}
           />
 
           {state.errors?.description && (
@@ -72,7 +71,7 @@ export default function EditProductForm({ product }: { product: Product }) {
               type="number"
               step="0.01"
               min="0"
-              defaultValue={product.price}
+              defaultValue={state.fields?.price || product.price}
             />
 
             {state.errors?.price && (
@@ -87,7 +86,7 @@ export default function EditProductForm({ product }: { product: Product }) {
               name="stock"
               type="number"
               min="0"
-              defaultValue={product.stock}
+              defaultValue={state.fields?.stock || product.stock}
             />
 
             {state.errors?.stock && (
@@ -101,7 +100,7 @@ export default function EditProductForm({ product }: { product: Product }) {
           <select
             id="category"
             name="category"
-            defaultValue={product.category}
+            defaultValue={state.fields?.category || product.category}
           >
             <option value="" disabled>
               Select a category
@@ -125,7 +124,7 @@ export default function EditProductForm({ product }: { product: Product }) {
             id="image_url"
             name="image_url"
             type="text"
-            defaultValue={product.image_url ?? ""}
+            defaultValue={state.fields?.image_url || (product.image_url ?? "")}
             placeholder="/products/mug.jpg"
           />
 

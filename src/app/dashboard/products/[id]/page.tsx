@@ -21,7 +21,7 @@ export default async function ProductPage({
     <main className={styles.productPage}>
       <div className={styles.productDetail}>
         <Image
-          src={product.image_url ?? "/placeholder.png"}
+          src={product.image_url ?? "/products/placeholder.png"}
           alt={product.name}
           width={300}
           height={300}
@@ -38,6 +38,7 @@ export default async function ProductPage({
 
           <p>Description: {product.description}</p>
           <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
+          {"stock" in product && <p className="stock">Stock: {product.stock}</p>}
           <p>Category: {product.category}</p>
 
           <Link
