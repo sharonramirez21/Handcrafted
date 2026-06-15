@@ -28,7 +28,7 @@ export default async function Page() {
                 <div className={styles.dashboardCards}>
                     <p>Total Reviews</p>
                     <h2>{reviews.length}</h2>
-                    <Link href={"/dashboard/reviews"}>View all products</Link>
+                    <Link href={"/dashboard/reviews"}>View all reviews</Link>
                 </div>
                 <div className={styles.dashboardCards}>
                     <p>Average Rating</p>
