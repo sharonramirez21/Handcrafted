@@ -2,7 +2,7 @@ import styles from "./about.module.css";
 
 export default async function AboutPage() {
     return (
-        <div>
+        <div className={styles.aboutpage}>
             <div className={styles.titleAbout}>
                 <h1>About Us</h1>
             </div>
