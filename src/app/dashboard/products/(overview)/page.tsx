@@ -4,6 +4,13 @@ import { auth } from "@/auth";
 import Link from "next/link";
 import styles from "../products.module.css"
 import { fetchProductsBySellerEmail } from "@/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Products Dashboard",
+  description:
+    "View and manage all your handmade product listings from a single dashboard.",
+};
 
 export default async function ProductPage(
     props: {

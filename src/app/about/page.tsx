@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import styles from "./about.module.css";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Handcrafted Haven, our mission to support artisans, and our commitment to sustainable and conscious shopping.",
+};
 
 export default async function AboutPage() {
     return (

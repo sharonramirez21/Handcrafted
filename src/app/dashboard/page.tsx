@@ -2,6 +2,13 @@ import styles from "./dashboard.module.css"
 import {auth} from "@/auth";
 import Link from "next/link";
 import {fetchProductsBySellerId, fetchReviewsForSellerProducts} from "@/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description:
+    "Manage your account, products, orders, and artisan profile from your Handcrafted Haven dashboard.",
+};
 
 export default async function Page() {
     const session = await auth();
