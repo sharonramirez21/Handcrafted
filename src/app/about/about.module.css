@@ -117,4 +117,16 @@
 }
 
 
-@media (max-width: 900px) {}
+@media (max-width: 900px) {
+    .missionvisionPart,
+    .visionDiv,
+    .missionDiv,
+    
+    .listValues,
+    .valuesDiv {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 10px auto;
+        gap: 10px;
+    }
+}
