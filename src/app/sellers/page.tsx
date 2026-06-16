@@ -4,8 +4,13 @@ import SellersGrid from "./SellersGrid";
 import styles from "./sellers.module.css"
 import { Suspense } from "react";
 import SellersCardSkeleton from "@/components/SellersCardSkeleton";
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+  title: "Sellers",
+  description:
+    "Explore artisan profiles, discover their stories, and browse unique handmade products from verified sellers.",
+};
 
 export default async function PageSellers() {
     

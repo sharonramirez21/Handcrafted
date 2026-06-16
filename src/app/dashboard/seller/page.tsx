@@ -4,6 +4,13 @@ import { notFound } from "next/navigation";
 import { auth } from "@/auth";
 import styles from "./sellers.module.css";
 import ProfileForm from "./ProfileForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Seller Dashboard",
+  description:
+    "Manage your artisan profile, showcase your story, and connect with customers on Handcrafted Haven.",
+};
 
 export default async function Page() {
   const session = await auth();

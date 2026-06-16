@@ -2,6 +2,15 @@ import { fetchProducts } from "@/lib/data";
 import ProductGrid from "./ProductGrid";
 import ProductsFilter from "@/components/ProductsFilter";
 import styles from "./products.module.css"
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Products",
+  description:
+    "Browse handcrafted products from talented artisans. Filter by category and price.",
+};
+
 
 export default async function ProductPage({
     searchParams 

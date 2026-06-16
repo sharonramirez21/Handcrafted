@@ -4,6 +4,14 @@ import Link from "next/link";
 import ReviewForm from "./ReviewForm";
 import { notFound } from "next/navigation";
 import styles from "../products.module.css";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Product Details",
+  description:
+    "View detailed information, images, reviews, and pricing for handcrafted products on Handcrafted Haven.",
+};
 
 export default async function ProductPage({
     params,
